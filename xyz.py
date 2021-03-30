@@ -1,6 +1,3 @@
-#from read_file import *
-
-
 def row_mean_to_new_list(main_list, index_list):
     new_list = [['КодГуп', 'Артикул', 'Номенклатура', 'Ср. арифм.', 'Дисперсия', 'СКО', 'Коэфф. вариации', 'XYZ']]
     rows = len(main_list) - 1
@@ -28,8 +25,6 @@ def dispersion_to_new_list(main_list, new_list, index_list):
         new_list[row-2][4] = dispersion
         new_list[row-2][5] = sko
         new_list[row-2][6] = k_var
-        #print(new_list[row])
-        #print(len(index_list))
     return new_list
 
 def make_xyz(new_list):
