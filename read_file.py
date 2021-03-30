@@ -1,8 +1,8 @@
 import csv
 from datetime import date
 
-__all__ = ['main_list', 'index_dict', 'make_index_list',
-           'write_csv_r']
+__all__ = ['main_list', 'index_dict', 'nach_ostatok_i', 'prihod_i', 'rashod_i', 'kon_ostatok_i', 'tmp_index_list',
+           'write_csv_r', 'make_index_list']
 
 # Data DIR
 FILES_DIR = './files/'
@@ -46,11 +46,20 @@ cols = len(main_list[3])
 
 month_dict = {'Январь': 1, 'Февраль': 2, 'Март': 3, 'Апрель': 4, 'Май': 5, 'Июнь': 6, 'Июль': 7, 'Август': 8, 'Сентябрь': 9, 'Октябрь': 10, 'Ноябрь': 11, 'Декабрь': 12}
 
-# Make dict of indexes
+# Make lists and dict of indexes
+tmp_index_list = []
+nach_ostatok_i = []
+prihod_i = []
+rashod_i = []
+kon_ostatok_i = []
 index_dict = {'nach_ostatok_i':[], 'prihod_i':[], 'rashod_i':[], 'kon_ostatok_i':[]}
 for item in main_list[0]:
     for _month_ in month_dict:
         if _month_ in item:
+            nach_ostatok_i.append(main_list[0].index(item))
+            prihod_i.append(main_list[0].index(item) + 2)
+            rashod_i.append(main_list[0].index(item) + 4)
+            kon_ostatok_i.append(main_list[0].index(item) + 6)
             _mm_ = int(month_dict[item.split()[0]])
             _yyyy_ = int(item.split()[1])
             d = date(_yyyy_, _mm_, 15)
@@ -58,6 +67,7 @@ for item in main_list[0]:
             index_dict['prihod_i'].append([d, main_list[0].index(item) + 2, main_list[0].index(item) + 3])
             index_dict['rashod_i'].append([d, main_list[0].index(item) + 4, main_list[0].index(item) + 5])
             index_dict['kon_ostatok_i'].append([d, main_list[0].index(item) + 6, main_list[0].index(item) + 7])
+
 
 def make_index_list(index_dict, date1, date2, col_name, type):
     list = []
@@ -75,13 +85,12 @@ def make_index_list(index_dict, date1, date2, col_name, type):
                         list.append(item[num])
     return list
 
-
 def write_csv_r(data, file):
     '''
     Make result file
     :param data: list
-    :param file: file 'name'
-    :return: write file
+    :param file: file name
+    :return: write file to os
     '''
     with open(f'./result/{file}.csv', 'w', encoding = 'cp1251'
               ) as file:
