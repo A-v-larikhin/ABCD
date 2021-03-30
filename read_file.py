@@ -69,7 +69,9 @@ for item in main_list[0]:
             index_dict['kon_ostatok_i'].append([d, main_list[0].index(item) + 6, main_list[0].index(item) + 7])
 
 
-def make_index_list(index_dict, date1, date2, col_name, type):
+def make_index_list(index_dict, date_r, col_name, type):
+    date1 = date(date_r[0],date_r[1],15)
+    date2 = date(date_r[2],date_r[3],15)
     list = []
     num = 0
     if type == 'count':

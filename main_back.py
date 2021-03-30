@@ -1,5 +1,5 @@
 from read_file import *
-from abcd import *
+from abcd_func import *
 
 if __name__ == '__main__':
 # start ABCD

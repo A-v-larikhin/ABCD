@@ -1,4 +1,4 @@
-from main_abcd import main_list, index_dict, kon_ostatok_i
+from abcd_main import main_list, index_dict, kon_ostatok_i
 
 month_dict = {}
 month_num = 1
