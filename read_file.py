@@ -2,7 +2,7 @@ import csv
 from datetime import date
 
 __all__ = ['main_list', 'index_dict', 'nach_ostatok_i', 'prihod_i', 'rashod_i', 'kon_ostatok_i', 'tmp_index_list',
-           'write_csv_r']
+           'write_csv_r', 'make_index_list']
 
 # Data DIR
 FILES_DIR = './files/'
@@ -69,11 +69,21 @@ for item in main_list[0]:
             index_dict['kon_ostatok_i'].append([d, main_list[0].index(item) + 6, main_list[0].index(item) + 7])
 
 
-# print(nach_ostatok_i)
-# print(prihod_i)
-# print(rashod_i)
-# print(kon_ostatok_i)
-# print(index_dict)
+def make_index_list(index_dict, date1, date2, col_name, type):
+    list = []
+    num = 0
+    if type == 'count':
+        num = 1
+    elif type == 'cost':
+        num = 2
+    else:
+        print('Must be "count" or "cost"')
+    for key in index_dict:
+        if key == col_name:
+            for item in index_dict[key]:
+                if date1 <= item[0] <= date2:
+                        list.append(item[num])
+    return list
 
 def write_csv_r(data, file):
     '''
