@@ -17,6 +17,7 @@ i_list = make_index_list(index_dict, date_range, col_name1, col_name2)
 result_list = row_mean_to_new_list(main_list, i_list)
 result_list = dispersion_to_new_list(main_list, result_list, i_list)
 result_list = make_xyz(result_list)
-for row in result_list:
-    print(row)
-write_csv_r(result_list, filename)
+if __name__ == '__main__':
+    for row in result_list:
+        print(row)
+    write_csv_r(result_list, filename)

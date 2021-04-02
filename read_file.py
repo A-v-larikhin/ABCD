@@ -20,6 +20,10 @@ def read_csv_list(file_name):
 def read_float_with_comma(num):
     return float(num.replace(",", "."))
 
+def write_float_with_point(num):
+    num = str(num)
+    return num.replace(".", ",")
+
 
 def make_null(main_list):
     '''
