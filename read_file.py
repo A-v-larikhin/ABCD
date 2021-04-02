@@ -2,7 +2,7 @@ import csv
 from datetime import date
 
 __all__ = ['main_list', 'index_dict', 'nach_ostatok_i', 'prihod_i', 'rashod_i', 'kon_ostatok_i', 'tmp_index_list',
-           'write_csv_r', 'make_index_list']
+           'write_csv_r', 'make_index_list', 'make_gup_kods']
 
 # Data DIR
 FILES_DIR = './files/'
@@ -103,3 +103,10 @@ def write_csv_r(data, file):
         writer = csv.writer(file, delimiter=';', quotechar='"')
         for i in data:
             writer.writerow(i)
+
+def make_gup_kods():
+    list = read_csv_list('./files/x.csv')
+    gup_kods = []
+    for row in list:
+        gup_kods.append(row[0])
+    return gup_kods
