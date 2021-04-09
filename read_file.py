@@ -104,6 +104,7 @@ def write_csv_r(data, file):
         for i in data:
             writer.writerow(i)
 
+# Делаем выборку по списку код.ГУП из файла
 def make_gup_kods():
     list = read_csv_list('./files/x.csv')
     gup_kods = []
