@@ -9,7 +9,7 @@ def holt_main_func(main_list, holt_index_list):
     holt_dict = {}
     for row in range(3, rows):
         row_name = main_list[row][1]
-        row_descript = [main_list[row][2:4]]
+        row_descript = main_list[row][2:4]
         row_data = []
         for list in holt_index_list:
             col = list[1]
