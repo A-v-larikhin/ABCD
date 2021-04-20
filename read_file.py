@@ -56,6 +56,10 @@ nach_ostatok_i = []
 prihod_i = []
 rashod_i = []
 kon_ostatok_i = []
+
+# index_dict structure
+# {'nach_ostatok_i':[date, count, cost],
+# 'prihod_i':[], 'rashod_i':[], 'kon_ostatok_i':[]}
 index_dict = {'nach_ostatok_i':[], 'prihod_i':[], 'rashod_i':[], 'kon_ostatok_i':[]}
 for item in main_list[0]:
     for _month_ in month_dict:
@@ -106,7 +110,7 @@ def write_csv_r(data, file):
 
 # Делаем выборку по списку код.ГУП из файла
 def make_gup_kods():
-    list = read_csv_list('./files/x.csv')
+    list = read_csv_list('./files/vblborka_a.csv')
     gup_kods = []
     for row in list:
         gup_kods.append(row[0])
