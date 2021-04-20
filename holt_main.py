@@ -6,9 +6,8 @@ from holt_funcs import *
 col_name = 'rashod_i'   # 'count' or 'cost'
 
 # Start Holt
-holt_index_list = otbor_indexov_holt(index_dict, col_name)
+holt_index_list, month_list = otbor_indexov_holt(index_dict, col_name)
 holt_dict = holt_main_func(main_list, holt_index_list)
-
 
 if __name__ == '__main__':
     holt_dict = holt_main_func(main_list, holt_index_list)

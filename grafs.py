@@ -35,5 +35,5 @@ for row in range(1, rows):
     ax2.set_ylabel('Количество')
     ax1.get_yaxis().set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
     ax1.tick_params(axis='x', rotation=70)
-    plt.savefig(f'./png/{filename}.png', dpi=200)
+    plt.savefig(f'./png_vblborka/{filename}.png', dpi=200)
     plt.close('all')
