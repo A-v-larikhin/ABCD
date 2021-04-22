@@ -1,5 +1,6 @@
+# Atavizm
 from holt_main import holt_dict, month_list
-from grafs_funcs import make_png_file
+from grafs_funcs import make_png_holt
 
 dir = './png_holt/'
 if __name__ == '__main__':
@@ -12,6 +13,8 @@ if __name__ == '__main__':
         prognos_list.append(item)
         prognos_list.extend(holt_dict[item][0])
         prognos_list.extend(holt_dict[item][2])
-        make_png_file(data_list, prognos_list, dir, month_list)
-        print(data_list)
-        print(prognos_list)
+        alfa = (holt_dict[item][3])
+        beta = (holt_dict[item][4])
+        make_png_holt(data_list, prognos_list, dir, month_list, alfa, beta)
+        #print(data_list)
+        #print(prognos_list)
